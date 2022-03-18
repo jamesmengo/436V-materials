@@ -239,19 +239,19 @@ class Timeline {
       }
     }
     vis.chart.selectAll('text')
-      .data(eventsToLabel)
-      .join('text')
-      .attr('transform', d => {
-        const curr = new Date(d.element.mid)
-        const diff = this.maxYear - curr.getFullYear()
-        const xPos = vis.xScale(new Date(curr.getFullYear() + diff, curr.getMonth(), curr.getDate()))
-        const yPos = vis.yScale(d.year) + 20
-        return "translate(" + xPos + "," + yPos + ")"
-      })
-      .attr('text-anchor', 'middle')
-      .text(d => d.element.name)
-      .attr('fill', 'grey')
-      .style('font-size', '10px')
+        .data(eventsToLabel)
+        .join('text')
+        .attr('transform', d => {
+          const curr = new Date(d.element.mid)
+          const diff = this.maxYear - curr.getFullYear()
+          const xPos = vis.xScale(new Date(curr.getFullYear() + diff, curr.getMonth(), curr.getDate()))
+          const yPos = vis.yScale(d.year) + 20
+          return "translate(" + xPos + "," + yPos + ")"
+        })
+        .attr('text-anchor', 'middle')
+        .text(d => d.element.name)
+        .attr('fill', 'grey')
+        .style('font-size', '10px')
   }
 }
 
